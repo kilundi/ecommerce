@@ -16,7 +16,11 @@
                     <span class="text-xl font-bold">{{product.name}}</span>
                     <p class="text-xs text-gray-700">ID: {{product.id}}</p>
                 </div>
-                <span class="font-bold  text-red-600">Ksh: {{product.price}}</span>
+                <div class="flex flex-col ">
+
+                    <span class="font-bold  text-red-600">Ksh: {{product.price}}</span>
+                    <span> Stock: {{product.stock}} </span>
+                </div>
             </div>
 
             {% include 'add_to_cart_btn.html' %}
