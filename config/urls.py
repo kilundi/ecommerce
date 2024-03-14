@@ -24,6 +24,7 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include(('ecommerce.urls', 'ecommerce'), namespace='ecommerce')),
     path('', include(('products.urls' , 'products'), namespace='products')),
+    path('', include(('cart.urls' , 'cart'), namespace='cart')),
     path("__reload__/", include("django_browser_reload.urls")),
 ]
 

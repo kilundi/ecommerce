@@ -21,16 +21,17 @@ Category 1
     <div class="w-full lg:w-3/5 bg-slate-600">
         <img src="{{ product.image.url }}" class=" object-contain" alt="product Image">
     </div>
-    <div class="w-full lg:w-2/5 ">
+    <div class="w-full lg:w-2/5 p-4 ">
         <h1 class="text-2xl"> {{product.name}}</h1>
         <p>Ksh: {{product.price}}</p>
         <p> {{product.description}} </p>
 
-        <a href="#">
-            <button type="button" class="p-4 rounded-xl bg-purple-500">
-                Add to cart
-            </button>
-        </a>
+
+        <div class="max-w-[100px]">
+            {% include 'add_to_cart_btn.html' %}
+
+        </div>
+
 
     </div>
 
