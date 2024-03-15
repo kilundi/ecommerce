@@ -1,5 +1,7 @@
 from django.db.models import Q
-from django.shortcuts import render
+from django.contrib.auth import login
+from django.shortcuts import render,redirect
+from .forms import SignUpForm
 from products.models import Product,Category
 
 # Create your views here.
@@ -9,7 +11,17 @@ def Homepage(request):
     return render(request, 'ecommerce/homepage.html', {'products': products})
 
 def SignUp(request):
-    return render(request, 'registration/signup.html')
+
+    if request.method == 'POST':
+        form = SignUpForm(request.POST)
+        if form.is_valid():
+            user = form.save()
+            login(request, user)
+            return redirect('/')
+    else:
+        form = SignUpForm()
+
+    return render(request, 'registration/signup.html', {'form': form})
 
 def Login(request):
     return render(request, 'registration/login.html')
