@@ -8,6 +8,12 @@ def Homepage(request):
     products = Product.objects.all()[0:8]
     return render(request, 'ecommerce/homepage.html', {'products': products})
 
+def SignUp(request):
+    return render(request, 'registration/signup.html')
+
+def Login(request):
+    return render(request, 'registration/login.html')
+
 def Shop(request):
     categories = Category.objects.all()
     products = Product.objects.all()
