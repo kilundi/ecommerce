@@ -2,6 +2,7 @@ from django.db.models import Q
 from django.contrib.auth import login
 from django.shortcuts import render,redirect
 from .forms import SignUpForm
+from django.contrib.auth.decorators import login_required
 from products.models import Product,Category
 
 # Create your views here.
@@ -26,6 +27,7 @@ def SignUp(request):
 def Login(request):
     return render(request, 'registration/login.html')
 
+@login_required
 def Shop(request):
     categories = Category.objects.all()
     products = Product.objects.all()
