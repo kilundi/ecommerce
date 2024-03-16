@@ -18,9 +18,13 @@ from django.contrib import admin
 from django.urls import path,include
 from django.conf.urls.static import static
 from django.conf import settings
+from django.contrib.auth import views
+
 
 
 urlpatterns = [
+    path('logout/', views.LogoutView.as_view(), name='logout'),
+     path('login/', views.LoginView.as_view(template_name='registration/login.html'), name='login'),
     path('admin/', admin.site.urls),
     path('', include(('ecommerce.urls', 'ecommerce'), namespace='ecommerce')),
     path('', include(('products.urls' , 'products'), namespace='products')),

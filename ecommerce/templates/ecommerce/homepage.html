@@ -15,7 +15,18 @@ Home page
 {% block content %}
 <div
     class="min-h-[500px] flex flex-col justify-center items-center bg-gradient-to-r from-indigo-800 via-transparent to-cyan-500 py-4 bg-opacity-5">
+
+    {% if request.user.is_authenticated %}
+    <div class="text-2xl">
+        Hi <span class="text-3xl font-bold">{{request.user.username }}!</span>
+    </div>
+    {% endif %}
     <h2 class="text-PRIMARY1 md:text-4xl text-2xl">Welcome to Tech Shop </h2>
+
+
+
+
+
     <div class="max-w-[500px] w-full bg-no-repeat flex flex-col justify-center items-center">
         <img src="{% static '/images/bag.png' %}" alt="shopping cart">
         <a href="{% url 'ecommerce:shop' %}">
