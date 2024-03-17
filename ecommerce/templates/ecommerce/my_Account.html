@@ -1,0 +1,82 @@
+{% extends 'base.html' %}
+{% load static %}
+
+
+{% block title %}
+My Account
+{% endblock title %}
+
+
+
+{% block css %}
+
+{% endblock css %}
+
+{% block content %}
+<div class=" mx-auto ">
+    <div class=" flex flex-col gap-4 justify-center w-full  p-4  ">
+
+
+        <h1 class=" text-2xl font-header">My Account </h1>
+
+        <div>
+            <strong>Name:</strong> {{ request.user.get_full_name }} <br>
+            <strong>Username:</strong> {{ request.user.username }} <br>
+            <strong>E-mail:</strong> {{ request.user.email }} <br>
+            <a class="text-blue-500 underline hover:text-blue-600"
+                href=" {% url 'ecommerce:edit_my_account' user.pk %} ">Edit</a>
+        </div>
+
+        <hr class="border-t-2" style="border-color: gray;">
+
+
+        <h2 class="text-xl">My orders</h2>
+
+        <div class="w-full mb-6 p-6 flex flex-wrap bg-gray-400 rounded-xl">
+            <div class="mb-4 flex justify justify-between">
+                <a href="#">Order id: 1</a>
+            </div>
+
+            <div class="mb-6 w-full">
+                <div class="mb-4 flex pr-4">
+                    <a href="#" class="w-1/4">
+                        <img src="#" alt="product image">
+                    </a>
+
+                    <div class="w-3/4 pl-4">
+                        <div class="flex justify-between">
+                            <a href="#">Product name</a>
+
+                            <p class="mb-6 pt-1 ">Ksh: </p>
+
+                        </div>
+
+                        <hr class="border-t-2" style="border-color: gray;">
+
+                        <div class="mt-6">
+                            Quantity: 1
+                        </div>
+
+                    </div>
+
+                </div>
+            </div>
+
+            <div>
+                <p class="text-lg">Date: 04.04.2022</p>
+                <p class="text-lg">Total: Ksh: </p>
+
+            </div>
+
+        </div>
+
+    </div>
+</div>
+{% endblock content %}
+
+
+
+
+{% block js %}
+
+{% endblock js %}

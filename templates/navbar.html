@@ -87,11 +87,16 @@
                             {% endif %}
 
                             {% if request.user.is_authenticated %}
+
+                            <li>
+                                <a href=" {% url 'ecommerce:my_Account' %} "
+                                    class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">My
+                                    Account</a>
+                            </li>
                             <li>
                                 <a href="#"
                                     class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Favorates</a>
                             </li>
-
                             <li>
                                 <div
                                     class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">
