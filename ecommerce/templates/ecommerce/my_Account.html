@@ -32,20 +32,27 @@ My Account
 
         <h2 class="text-xl">My orders</h2>
 
+        {% for order in request.user.orders.all %}
+
+
+
         <div class="w-full mb-6 p-6 flex flex-wrap bg-gray-400 rounded-xl">
             <div class="mb-4 flex justify justify-between">
-                <a href="#">Order id: 1</a>
+                <a href="#">Order id: {{order.id}}</a>
             </div>
 
             <div class="mb-6 w-full">
+
+                {% for item in order.items.all %}
+
                 <div class="mb-4 flex pr-4">
                     <a href="#" class="w-1/4">
-                        <img src="#" alt="product image">
+                        <img class="rounded-xl" src=" {{item.product.get_thumbnail}} " alt="product image">
                     </a>
 
                     <div class="w-3/4 pl-4">
                         <div class="flex justify-between">
-                            <a href="#">Product name</a>
+                            <a href="#">{{item.product.name}}</a>
 
                             <p class="mb-6 pt-1 ">Ksh: </p>
 
@@ -54,21 +61,23 @@ My Account
                         <hr class="border-t-2" style="border-color: gray;">
 
                         <div class="mt-6">
-                            Quantity: 1
+                            Quantity: {{item.quantity}}
                         </div>
 
                     </div>
 
                 </div>
+                {% endfor %}
             </div>
 
             <div>
-                <p class="text-lg">Date: 04.04.2022</p>
+                <p class="text-lg">Date: {{order.created_at }}</p>
                 <p class="text-lg">Total: Ksh: </p>
 
             </div>
 
         </div>
+        {% endfor %}
 
     </div>
 </div>
