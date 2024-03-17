@@ -57,7 +57,12 @@
                     </a> -->
 
                     <!-- /////////////////////// -->
-                    {% include 'cart/cart_menu.html' %}
+                    <div hx-get="{%url 'cart:hx_menu_cart' %}" hx-trigger="update-menu-cart from:body"
+                        hx-swap="innerHTML">
+
+                        {% include 'cart/cart_menu_partial.html' %}
+                    </div>
+
                     <!-- /////////////////////// -->
 
                     <button id="dropdownDefaultButton" data-dropdown-toggle="dropdown" type="button">

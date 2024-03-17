@@ -14,5 +14,6 @@
 <hr class="my-2">
 <div class="flex justify-between mb-2">
     <span class="font-semibold">Total</span>
-    <span class="font-semibold">Ksh: {{cart.get_total_cost}}</span>
+    <span hx-get="{%url 'cart:hx_cart_total' %}" hx-trigger="update-menu-cart from:body" hx-swap="innerHTML"
+        class="font-semibold">Ksh: {% include 'cart/cart_total_partial.html' %}</span>
 </div>

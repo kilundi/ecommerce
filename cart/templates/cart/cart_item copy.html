@@ -20,7 +20,7 @@ cart Page
             <div class="md:w-3/5">
 
                 {% for item in cart %}
-                <div class="bg-white rounded-lg shadow-md p-6 mb-4">
+                <div id="cart-item-{{ item.product.id }}" class="bg-white rounded-lg shadow-md p-6 mb-4">
                     <table class="w-full">
                         <thead>
                             <tr>
@@ -42,9 +42,18 @@ cart Page
                                 <td class="py-4">ksh: {{ item.total_price }} /=</td>
                                 <td class="py-4">
                                     <div class="flex items-center">
-                                        <button class="border rounded-md py-2 px-4 mr-2">-</button>
+                                        <a class="border cursor-pointer rounded-md py-2 px-4 mr-2"
+                                            hx-get=" {% url 'cart:update_cart' item.product.id 'decrement' %} "
+                                            hx-target="#cart-item-{{ item.product.id }}" hx-swap='outerHTML'>
+                                            -
+                                        </a>
                                         <span class="text-center w-8"> {{ item.quantity }} </span>
-                                        <button class="border rounded-md py-2 px-4 ml-2">+</button>
+
+                                        <a class="border cursor-pointer rounded-md py-2 px-4 ml-2"
+                                            hx-get=" {% url 'cart:update_cart' item.product.id 'increment' %} "
+                                            hx-target="#cart-item-{{ item.product.id }}" hx-swap='outerHTML'>
+                                            +
+                                        </a>
                                     </div>
                                 </td>
                                 <td class="py-4">$19.99</td>
