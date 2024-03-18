@@ -27,7 +27,7 @@ urlpatterns = [
     path('login/', views.LoginView.as_view(template_name='registration/login.html'), name='login'),
     path('admin/', admin.site.urls),
     path('', include(('ecommerce.urls', 'ecommerce'), namespace='ecommerce')),
-    path('', include(('order.urls', 'order'), namespace='order')),
+    path('order/', include('order.urls')),
     path('', include(('products.urls' , 'products'), namespace='products')),
     path('', include(('cart.urls' , 'cart'), namespace='cart')),
     path("__reload__/", include("django_browser_reload.urls")),
