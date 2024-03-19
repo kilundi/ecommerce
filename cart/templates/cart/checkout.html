@@ -26,7 +26,9 @@ checkout Page
 
                     <div> {% include 'cart/contact_information_partial.html' %} </div>
 
-                    <!-- <div> {% include 'cart/payment_information_partial.html' %} </div> -->
+                    <div class="mb-6 p-4 mt-6 hidden bg-gray-100 rounded-xl text-red-500 font-bold" id="errors">
+
+                    </div>
 
                 </div>
             </div>
@@ -58,6 +60,7 @@ checkout Page
 <script type="application/javascript" src="https://js.stripe.com/v3/"></script>
 
 <script>
+    let element = document.getElementById('errors');
     function validateForm(data) {
         let errors = []
 
@@ -87,6 +90,16 @@ checkout Page
 
         if (data.place === '') {
             errors.push('Place is empty')
+        }
+
+        if (errors.length > 0) {
+            let html = '<ul>';
+            for (let i = 0; i < errors.length; i++) {
+                html += '<li>' + errors[i] + '</li>';
+            }
+            html += '</ul>';
+            element.innerHTML = html;
+            element.classList.remove('hidden'); // Remove the 'hidden' class to make the div visible
         }
 
         return errors
