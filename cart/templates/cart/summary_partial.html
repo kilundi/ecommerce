@@ -15,5 +15,5 @@
 <div class="flex justify-between mb-2">
     <span class="font-semibold">Total</span>
     <span hx-get="{%url 'cart:hx_cart_total' %}" hx-trigger="update-menu-cart from:body" hx-swap="innerHTML"
-        class="font-semibold">Ksh: {% include 'cart/cart_total_partial.html' %}</span>
+        class="font-semibold">{% include 'cart/cart_total_partial.html' %}</span>
 </div>
